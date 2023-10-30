@@ -1,0 +1,48 @@
+类型关键字
+    var     | 自动确定类型, 但编译后, 类型固定不可改变
+    dynamic | 动态类型, 可以任意改变
+
+常用内建类型
+    Null        | 值只有 null
+
+    Object      | 所有类型的父类, 除了 Null
+        bool    | 值只有 true, false
+        num
+            int
+            double
+
+        Symbol
+
+        Record  | 没有构造函数, 由 () 字面形式构造
+        List<E> | 没有构造函数, 由 [] 字面形式构造
+        String  | 没有构造函数, 由 "" 字面形式构造 (或用 '')
+
+        Set<E>
+        Map<K, W>
+
+别名
+    typedef NewType = OldType
+
+泛型
+    声明: class App<T> {}
+    使用
+        (1) 将 App<Type> 当作一般的类型
+        (2) List, Set, Map: var foo = <Type> ...
+
+    限定
+        // 定义时
+        <T extends ...>
+
+访问子属性
+    直接访问: Type.foo
+    级联访问
+        Type
+            ..foo()
+            ..bar();
+        // 相当于:
+        //   Type.foo();
+        //   Type.bar();
+    
+    空安全访问: 
+        // 若 Type 的值为null, 则整体仍返回 null
+        Type?.foo 
